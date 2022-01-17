@@ -9,9 +9,10 @@ from wagtail.admin.edit_handlers import FieldPanel
 from wagtail.images.blocks import ImageChooserBlock
 from wagtail.images.edit_handlers import ImageChooserPanel
 from wagtail.search import index
+from home.models import BasePage
 
 
-class BlogIndexPage(Page):
+class BlogIndexPage(BasePage):
     intro = RichTextField(blank=True)
 
     content_panels = Page.content_panels + [
@@ -21,7 +22,7 @@ class BlogIndexPage(Page):
 
 
 
-class BlogPage(Page):
+class BlogPage(BasePage):
     date = models.DateField("Post date")
     intro = models.CharField(max_length=250)
     body = RichTextField(blank=True)

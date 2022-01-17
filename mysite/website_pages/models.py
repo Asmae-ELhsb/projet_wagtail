@@ -6,8 +6,10 @@ from wagtail.core.fields import RichTextField, StreamField
 from wagtail.core.models import Page
 from wagtail.core import blocks
 from website_blocks.blocks import hero, separators, features
+from home.models import BasePage
 
-class AboutPage(Page):
+
+class AboutPage(BasePage):
 
     body = StreamField([
 
