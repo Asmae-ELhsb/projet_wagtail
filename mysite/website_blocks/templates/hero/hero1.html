@@ -1,0 +1,20 @@
+{% load wagtailimages_tags %}
+
+{% image value.background_image fill-1920x1280 as background_img %}
+<div class="hero-slider">
+	<div class="slider-item th-fullpage hero-area" style="background: url('{{ background_img.url }}');background-repeat: no-repeat;background-size: cover">
+		<div class="container">
+			<div class="row">
+				<div class="col-md-12 text-center">
+					<h1 data-duration-in=".3" data-animation-in="fadeInUp" data-delay-in=".1">{{ value.title1 }}
+						</h1>
+					<p data-duration-in=".3" data-animation-in="fadeInUp" data-delay-in=".5">{{ value.title2 }}</p>
+				<a data-duration-in=".3" data-animation-in="fadeInUp" data-delay-in=".8" href="{{ value.button.href }}"
+                               {% if value.button.external_link %}target="_blank" {% endif %}
+                               class="btn btn-main">{{ value.button.text }}</a>
+				</div>
+			</div>
+		</div>
+	</div>
+
+</div>

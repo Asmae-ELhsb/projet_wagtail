@@ -1,0 +1,140 @@
+{% load static wagtailcore_tags wagtailuserbar %}
+
+<!DOCTYPE html>
+<html class="no-js" lang="en">
+    <head>
+        <meta charset="utf-8" />
+        <title>
+            {% block title %}
+                {% if page.seo_title %}{{ page.seo_title }}{% else %}{{ page.title }}{% endif %}
+            {% endblock %}
+            {% block title_suffix %}
+                {% wagtail_site as current_site %}
+                {% if current_site and current_site.site_name %}- {{ current_site.site_name }}{% endif %}
+            {% endblock %}
+        </title>
+        <meta name="description" content="" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+        {# Global stylesheets #}
+         <!-- Favicon -->
+  <link rel="shortcut icon" type="image/x-icon" href="{% static 'images/favicon.png' %}" />
+
+  <!-- CSS
+  ================================================== -->
+  <!-- Themefisher Icon font -->
+  <link rel="stylesheet" href="{% static 'plugins/themefisher-font/style.css' %}">
+  <!-- bootstrap.min css -->
+  <link rel="stylesheet" href="{% static 'plugins/bootstrap/css/bootstrap.min.css' %}">
+  <!-- Lightbox.min css -->
+  <link rel="stylesheet" href="{% static 'plugins/lightbox2/dist/css/lightbox.min.css' %}">
+  <!-- animation css -->
+  <link rel="stylesheet" href="{% static 'plugins/animate/animate.css' %}">
+  <!-- Slick Carousel -->
+  <link rel="stylesheet" href="{% static 'plugins/slick/slick.css' %}">
+  <!-- Main Stylesheet -->
+        <link rel="stylesheet" type="text/css" href="{% static 'css/style.css' %}">
+
+        {% block extra_css %}
+            {# Override this in templates to add extra stylesheets #}
+        {% endblock %}
+    </head>
+
+    <body id="body" >
+        {% wagtailuserbar %}
+
+
+
+
+<!--
+        Start Preloader
+  ==================================== -->
+
+  <!--
+  End Preloader
+  ==================================== -->
+
+
+        <!--
+Fixed Navigation
+==================================== -->
+<header class="navigation fixed-top sticky-header">
+  <div class="container">
+    <!-- main nav -->
+    <nav class="navbar navbar-expand-lg navbar-light">
+      <!-- logo -->
+      <a class="navbar-brand logo" href="index.html">
+        <img class="logo-default" src="{% static 'images/logo.png' %}" alt="logo"/>
+        <img class="logo-white" src="{% static 'images/logo-white.png' %}" alt="logo"/>
+      </a>
+      <!-- /logo -->
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navigation"
+        aria-controls="navigation" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+
+      <div class="collapse navbar-collapse" id="navigation">
+        <ul class="navbar-nav ml-auto text-center">
+
+            <li class="nav-item ">
+                <a class="nav-link" href="index.html">Homepage</a>
+            </li>
+          <li class="nav-item ">
+            <a class="nav-link" href="about_page.html">About Us</a>
+          </li>
+          <li class="nav-item ">
+            <a class="nav-link" href="blog.html">Blog Page</a>
+          </li>
+          <li class="nav-item ">
+            <a class="nav-link" href="contact.html">Contact</a>
+          </li>
+
+        </ul>
+      </div>
+    </nav>
+    <!-- /main nav -->
+  </div>
+</header>
+<!--
+End Fixed Navigation
+==================================== -->
+
+{% block content %} {% endblock %}
+
+
+
+
+
+        {# Global javascript #}
+        <script type="text/javascript" src="{% static 'js/script.js' %}"></script>
+
+        <!-- Main jQuery -->
+    <script src="{% static 'plugins/jquery/jquery.min.js' %}"></script>
+    <!-- Google Map -->
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBu5nZKbeK-WHQ70oqOWo-_4VmwOwKP9YQ"></script>
+    <script  src="{% static 'plugins/google-map/gmap.js' %}"></script>
+
+    <!-- Form Validation -->
+    <script src="{% static 'plugins/form-validation/jquery.form.js' %}"></script>
+    <script src="{% static 'plugins/form-validation/jquery.validate.min.js' %}"></script>
+
+    <!-- Bootstrap4 -->
+    <script src="{% static 'plugins/bootstrap/js/bootstrap.min.js' %}"></script>
+    <!-- Parallax -->
+    <script src="{% static 'plugins/parallax/jquery.parallax-1.1.3.js' %}"></script>
+    <!-- lightbox -->
+    <script src="{% static 'plugins/lightbox2/dist/js/lightbox.min.js' %}"></script>
+    <!-- Owl Carousel -->
+    <script src="{% static 'plugins/slick/slick.min.js' %}"></script>
+    <!-- filter -->
+    <script src="{% static 'plugins/filterizr/jquery.filterizr.min.js' %}"></script>
+    <!-- Smooth Scroll js -->
+    <script src="{% static 'plugins/smooth-scroll/smooth-scroll.min.js' %}"></script>
+
+
+
+        {% block extra_js %}
+            {# Override this in templates to add extra javascript #}
+        {% endblock %}
+    </body>
+</html>

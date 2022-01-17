@@ -1,0 +1,66 @@
+{% extends "base.html" %}
+
+{% load wagtailcore_tags %}
+{% load wagtailimages_tags %}
+
+
+{% block content %}
+
+
+
+
+
+
+</br>
+</br>
+</br>
+<section class="single-page-header">
+	<div class="container">
+		<div class="row">
+			<div class="col-md-12">
+				<h2>{{ page.title }}</h2>
+
+
+			</div>
+		</div>
+	</div>
+</section>
+
+
+<section class="posts section">
+	<div class="container">
+		<div class="row">
+			<!-- /section title -->
+			<!-- single blog post -->
+
+
+			<article class="col-md-10 col-sm-6 col-xs-12 clearfix ">
+				<center>
+				<div class="post-item">
+					<div class="media-wrapper">
+						{% image page.image fill-450x475 as img %}
+
+                        <img src="{{ img.url }}"  alt="{{ img.alt }}">
+					</div>
+
+					<div class="content">
+
+
+						<h3><a href="single-post.html">{{ page.title }}</a></h3>
+                        <h4> {{ page.specific.intro }}</h4>
+						<p>  {{ page.specific.body|richtext }}</p>
+
+					</div>
+				</div>
+				</center>
+			</article>
+
+
+		</div>
+	</div>
+</section>
+
+
+
+
+{% endblock %}

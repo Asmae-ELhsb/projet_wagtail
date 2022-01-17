@@ -1,0 +1,42 @@
+
+{% load wagtailimages_tags %}
+
+<!--
+Start About Section
+==================================== -->
+<section class="service-2 section">
+  <div class="container">
+    <div class="row">
+
+      <div class="col-12">
+        <!-- section title -->
+        <div class="title text-center">
+          <h2>{{ value.title1 }}</h2>
+
+          <div class="border"></div>
+        </div>
+        <!-- /section title -->
+      </div>
+
+      <div class="col-md-4 text-center">
+
+      </div>
+      <div class="col-md-12" >
+        <div class="row text-center">
+
+             {% for service in value.services %}
+          <div class="col-md-6 col-sm-6 col-xs-12">
+            <div class="service-item">
+              <i class="tf-ion-ios-alarm-outline"></i>
+
+              <h4>{{ service.title }}</h4>
+              <p>{{ service.description }}</p>
+            </div>
+          </div><!-- END COL -->
+           {% endfor %}
+
+        </div>
+      </div>
+    </div> <!-- End row -->
+  </div> <!-- End container -->
+</section> <!-- End section -->

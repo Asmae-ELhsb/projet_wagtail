@@ -1,0 +1,62 @@
+{% extends "base.html" %}
+
+{% load wagtailcore_tags %}
+{% load wagtailimages_tags %}
+
+
+
+{% block content %}
+
+
+
+
+
+<section class="single-page-header">
+	<div class="container">
+		<div class="row">
+			<div class="col-md-12">
+				<h2>{{ page.title }}</h2>
+				<p>    <div class="intro">{{ page.intro|richtext }}</div>
+</p>
+			</div>
+		</div>
+	</div>
+</section>
+
+
+<section class="posts section">
+	<div class="container">
+		<div class="row">
+			<!-- /section title -->
+			<!-- single blog post -->
+              {% for post in page.get_children %}
+			<article class="col-md-4 col-sm-6 col-xs-12 clearfix ">
+				<div class="post-item">
+					<div class="media-wrapper">
+						{% image post.specific.image fill-290x220 as img %}
+
+                        <img src="{{ img.url }}" class="img-fluid" alt="{{ post.image.alt }}">
+					</div>
+
+					<div class="content">
+
+
+						<h3><a href="single-post.html">{{ post.title }}</a></h3>
+                        <h4> {{ post.specific.intro }}</h4>
+						<p>  {{ post.specific.body|richtext }}</p>
+						<a class="btn btn-main" href="single-post.html">Read more</a>
+					</div>
+				</div>
+			</article>
+                          {% endfor %}
+
+		</div>
+	</div>
+</section>
+
+
+
+
+
+
+{% endblock %}

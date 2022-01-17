@@ -1,0 +1,39 @@
+{% load wagtailimages_tags %}
+ {% image value.image fill-450x475 as img %}
+<!--
+Start About Section
+==================================== -->
+<section class="about-2 section" id="about">
+	<div class="container">
+		<div class="row">
+
+			<!-- section title -->
+			<div class="col-12">
+				<div class="title text-center">
+					<h2>{{ value.title1 }}</h2>
+					<p>{{ value.title2 }}</p>
+					<div class="border"></div>
+				</div>
+			</div>
+			<!-- /section title -->
+
+			<div class="col-md-6">
+				<img src="{{ img.url }}" class="img-fluid" alt="">
+			</div>
+			<div class="col-md-6">
+				<ul class="checklist">
+
+                      {% for feature in value.features %}
+                        <li class="mb-2">
+                            <i class="far fa-check-circle"> </i> {{ feature.text }}
+                        </li>
+                    {% endfor %}
+				</ul>
+
+                <a data-duration-in=".3" data-animation-in="fadeInUp" data-delay-in=".8" href="{{ value.our_link.href }}"
+                               {% if value.our_link.external_link %}target="_blank" {% endif %}
+                               class="btn btn-main mt-20">{{ value.our_link.text }}</a>
+			</div>
+		</div> <!-- End row -->
+	</div> <!-- End container -->
+</section> <!-- End section -->
